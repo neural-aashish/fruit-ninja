@@ -1,3 +1,20 @@
+import cv2
+import mediapipe as mp
+import numpy as np
+import random
+import math
+import time
+
+# =============================
+# SETUP
+# =============================
+cap = cv2.VideoCapture(0)
+cap.set(3, 1280)
+cap.set(4, 720)
+
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands(max_num_hands=1)
+
 
 # =============================
 # VARIABLES
