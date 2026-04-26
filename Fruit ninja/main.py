@@ -77,9 +77,7 @@ def line_circle(px, py, x1, y1, x2, y2):
     iy = y1 + u*(y2-y1)
     return math.hypot(px-ix, py-iy)
 
-# =============================
-# MAIN LOOP
-# =============================
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -88,11 +86,10 @@ while True:
     frame = cv2.flip(frame,1)
     h, w = frame.shape[:2]
 
-    # LIGHT UI STYLE
     overlay = np.full_like(frame, (220,220,220))
     cv2.addWeighted(overlay, 0.25, frame, 0.75, 0, frame)
 
-    # HAND DETECTION
+  
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(rgb)
 
