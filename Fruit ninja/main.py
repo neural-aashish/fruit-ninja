@@ -133,7 +133,7 @@ while True:
         fruit.update()
         fruit.draw(frame)
 
-        # SLICE DETECTION
+      
         for i in range(1,len(trail)):
             x1,y1 = trail[i-1]
             x2,y2 = trail[i]
@@ -148,11 +148,10 @@ while True:
                     fruits.remove(fruit)
                     break
 
-        # REMOVE IF FALLS DOWN
         if fruit.y > h + 50:
             fruits.remove(fruit)
 
-    # UI
+   
     cv2.putText(frame, f"Score: {score}", (20,40),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
 
