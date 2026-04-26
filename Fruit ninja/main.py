@@ -6,9 +6,7 @@ import random
 import math
 import time
 
-# =============================
-# SETUP
-# =============================
+
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
@@ -17,18 +15,12 @@ mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands=1)
 
 
-# =============================
-# VARIABLES
-# =============================
 trail = []
 MAX_TRAIL = 20
 score = 0
 fruits = []
 spawn_time = time.time()
 
-# =============================
-# HAND DRAW
-# =============================
 def draw_hand(frame, hand_landmarks, w, h):
     pts = []
     for i in range(21):
@@ -52,9 +44,7 @@ def draw_hand(frame, hand_landmarks, w, h):
 
     return pts
 
-# =============================
-# FRUIT CLASS
-# =============================
+
 class Fruit:
     def __init__(self, w, h):
         self.x = random.randint(100, w-100)
@@ -76,9 +66,7 @@ class Fruit:
         if not self.sliced:
             cv2.circle(frame, (int(self.x), int(self.y)), self.r, self.color, -1)
 
-# =============================
-# COLLISION
-# =============================
+
 def line_circle(px, py, x1, y1, x2, y2):
     line_mag = math.hypot(x2-x1, y2-y1)
     if line_mag < 1:
